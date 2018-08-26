@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var transform = require('./');
+var argv = require('minimist')(process.argv.slice(2));
+
+process.stdin
+    .pipe(transform({
+        add: {
+            'source:geometry': 'ACTmapi'
+        },
+        modify: {
+            'BUILDING_TYPE': {
+                'key': 'building',
+                'value': {
+                    '1': 'commercial',
+                    '2': 'yes', // hospital, school, religious
+                    '3': 'yes', // defense
+                    '4': 'yes', // embassy
+                    '5': 'yes', // school, uni
+                    '6': 'yes', //
+                    '7': 'hospital',
+                    '8': 'yes', // public?
+                    '9': 'yes',
+                    '10': 'yes', // park
+                    '11': 'residential',
+                    '12': 'yes' // transportation
+                }
+            }
+        }
+    }))
+    .pipe(process.stdout);

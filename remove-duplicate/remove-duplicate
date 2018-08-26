@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+var removeDuplicates = require('./');
+var argv = require('minimist')(process.argv.slice(2));
+
+process.stdin
+    .pipe(removeDuplicates())
+    .pipe(process.stdout);
