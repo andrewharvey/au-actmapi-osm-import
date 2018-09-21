@@ -1,0 +1,10 @@
+{
+  "name": "au-actmapi-osm-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:andrewharvey/au-actmapi-osm-import.git",
+  "license": "MIT",
+  "dependencies": {
+    "oa2osm": "https://github.com/openaddresses/oa2osm.git"
+  }
+}

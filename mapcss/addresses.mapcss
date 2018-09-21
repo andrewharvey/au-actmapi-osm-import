@@ -1,0 +1,46 @@
+canvas {
+  //default-points: false;
+}
+
+/* missing street (might be in associatedStreet relation) */
+node[addr:unit][addr:housenumber][!addr:street],
+way[addr:unit][addr:housenumber][!addr:street],
+relation[addr:unit][addr:housenumber][!addr:street]
+{
+	text: eval(join("/", tag("addr:unit"), tag("addr:housenumber")));
+	font-size: 14;
+	text-position: center;
+	font-weight: bold;
+	font-style: italic;
+	text-color: #ff9d9d;
+
+}
+node[!addr:unit][addr:housenumber][!addr:street],
+way[!addr:unit][addr:housenumber][!addr:street],
+relation[!addr:unit][addr:housenumber][!addr:street]
+{
+	text: "addr:housenumber";
+	font-size: 14;
+	text-position: center;
+	font-weight: bold;
+	font-style: italic;
+	text-color: #ff9d9d;
+
+}
+
+node[addr:unit][addr:housenumber][addr:street],
+way[addr:unit][addr:housenumber][addr:street],
+relation[addr:unit][addr:housenumber][addr:street]
+{
+	text: eval(join("/", tag("addr:unit"), tag("addr:housenumber")));
+	font-size: 14;
+	text-position: center;
+}
+node[!addr:unit][addr:housenumber][addr:street],
+way[!addr:unit][addr:housenumber][addr:street],
+relation[!addr:unit][addr:housenumber][addr:street]
+{
+	text: "addr:housenumber";
+	font-size: 14;
+	text-position: center;
+}
